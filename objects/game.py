@@ -10,7 +10,7 @@ class Game(arcade.Window):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
 
     def on_draw(self):
-        pass
+        self.clear()
 
     def on_update(self, delta_time):
         pass
