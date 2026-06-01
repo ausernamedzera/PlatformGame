@@ -8,3 +8,6 @@ class Game(arcade.Window):
 
     def setup(self):
         pass
+
+    def on_draw(self):
+        pass
