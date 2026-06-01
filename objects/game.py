@@ -11,3 +11,6 @@ class Game(arcade.Window):
 
     def on_draw(self):
         pass
+
+    def on_update(self, delta_time):
+        pass
