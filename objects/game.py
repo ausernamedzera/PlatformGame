@@ -13,4 +13,4 @@ class Game(arcade.Window):
         self.clear()
 
     def on_update(self, delta_time):
-        pass
+        self.physics_engine.update()
