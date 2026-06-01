@@ -7,7 +7,7 @@ class Game(arcade.Window):
         arcade.set_background_color(arcade.color.SKY_BLUE)
 
     def setup(self):
-        pass
+        self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
 
     def on_draw(self):
         pass
