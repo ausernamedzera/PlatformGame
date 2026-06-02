@@ -4,6 +4,7 @@ from constants import *
 
 def main():
     game_window = Game()
+    game_window.setup()
     arcade.run()
 
 
