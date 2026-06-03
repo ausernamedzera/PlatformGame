@@ -11,6 +11,11 @@ class Game(arcade.Window):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
         self.player = Player()
 
+        #platform
+        for i in range(20):
+            platform = arcade.SpriteSolidColor(40, 20, arcade.color.GREEN)
+
+
     def on_draw(self):
         self.clear()
 
