@@ -29,9 +29,10 @@ class Game(arcade.Window):
         )
 
     def on_draw(self):
-        self.clear()
-        self.player.draw()
-        self.platform_list.draw()
+        def on_draw(self):
+            self.clear()
+            self.platform_list.draw()
+            arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
     def on_update(self, delta_time):
         if self.physics_engine:
