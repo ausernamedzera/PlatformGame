@@ -14,7 +14,9 @@ class Game(arcade.Window):
         #platform
         for i in range(20):
             platform = arcade.SpriteSolidColor(40, 20, arcade.color.GREEN)
-
+            platform.center_x = i*40
+            platform.center_y = 20
+            self.platform_list.append(platform)
 
     def on_draw(self):
         self.clear()
