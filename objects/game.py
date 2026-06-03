@@ -6,6 +6,9 @@ class Game(arcade.Window):
     def __init__(self):
         super().__init__(SCREEN_WIDTH, SCREEN_HEIGHT, SCREEN_TITLE)
         arcade.set_background_color(arcade.color.SKY_BLUE)
+        self.player = None
+        self.platform_list = None
+        self.physics_engine = None
 
     def setup(self):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
@@ -31,4 +34,5 @@ class Game(arcade.Window):
         self.platform_list.draw()
 
     def on_update(self, delta_time):
-        self.physics_engine.update()
+        if self.physics_engine:
+            self.physics_engine.update()
