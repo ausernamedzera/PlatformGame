@@ -27,7 +27,7 @@ class Game(arcade.Window):
 
     def on_draw(self):
         self.clear()
-        self.payer.draw()
+        self.player.draw()
         self.platform_list.draw()
 
     def on_update(self, delta_time):
