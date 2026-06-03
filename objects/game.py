@@ -18,6 +18,13 @@ class Game(arcade.Window):
             platform.center_y = 20
             self.platform_list.append(platform)
 
+        #physics engine
+        self.physics_engine = arcade.PhysicsEnginePlatformer(
+            self.player,
+            self.platform_list,
+            gravity_constant=GRAVITY
+        )
+
     def on_draw(self):
         self.clear()
 
