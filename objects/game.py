@@ -9,6 +9,7 @@ class Game(arcade.Window):
 
     def setup(self):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
+        self.player = Player()
 
     def on_draw(self):
         self.clear()
