@@ -1,4 +1,5 @@
 import arcade
+from objects.player import Player
 from constants import *
 
 class Game(arcade.Window):
