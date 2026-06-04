@@ -60,4 +60,3 @@ class Game(arcade.Window):
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
-            print(f"x:{self.player.center_x} y:{self.player.center_y} change_x:{self.player.change_x}")
