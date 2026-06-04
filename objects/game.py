@@ -16,15 +16,15 @@ class Game(arcade.Window):
 
         #platform
         for i in range(20):
-            platform = arcade.SpriteSolidColor(40, 20, arcade.color.GREEN)
+            platform = arcade.SpriteSolidColor(40, 20, color=arcade.color.GREEN)
             platform.center_x = i*40
             platform.center_y = 20
             self.platform_list.append(platform)
 
         #physics engine
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            self.player,
-            self.platform_list,
+            player_sprite=self.player,
+            platforms=self.platform_list,
             gravity_constant=GRAVITY
         )
 
@@ -36,3 +36,4 @@ class Game(arcade.Window):
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
+            print(self.player.center_y)
