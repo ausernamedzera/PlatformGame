@@ -33,6 +33,9 @@ class Game(arcade.Window):
             self.player.center_x = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT:
             self.player.center_x = PLAYER_MOVEMENT_SPEED
+        elif key == arcade.key.UP or key == arcade.key.SPACE:
+            if self.physics_engine.can_jump():
+                self.player.center_y = PLAYER_MOVEMENT_SPEED
 
     def on_draw(self):
         self.clear()
