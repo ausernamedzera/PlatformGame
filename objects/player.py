@@ -1,9 +1,8 @@
 import arcade
 from constants import *
 
-class Player(arcade.Sprite):
+class Player(arcade.SpriteCircle):
     def __init__(self):
-        super().__init__()
-        self.texture = arcade.make_soft_circle_texture(40, arcade.color.BLUE)
+        super().__init__(20, arcade.color.BLUE)
         self.center_x = 100
         self.center_y = 200
