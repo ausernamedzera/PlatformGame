@@ -60,3 +60,5 @@ class Game(arcade.Window):
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
+
+        self.camera.position = (self.player.center_x, self.player.center_y)
