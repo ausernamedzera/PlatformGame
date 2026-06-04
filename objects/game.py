@@ -31,7 +31,8 @@ class Game(arcade.Window):
     def on_key_press(self, key, modifiers):
         if key == arcade.key.LEFT:
             self.player.center_x = -PLAYER_MOVEMENT_SPEED
-
+        elif key == arcade.key.RIGHT:
+            self.player.center_x = PLAYER_MOVEMENT_SPEED
 
     def on_draw(self):
         self.clear()
