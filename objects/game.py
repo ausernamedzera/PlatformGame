@@ -47,6 +47,8 @@ class Game(arcade.Window):
 
     def on_draw(self):
         self.clear()
+        with self.camera:
+            self.platform_list.draw()
         self.platform_list.draw()
         arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
