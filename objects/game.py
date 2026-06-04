@@ -14,29 +14,36 @@ class Game(arcade.Window):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
         self.player = Player()
 
-        #platform
+        # platform
         for i in range(20):
-            platform = arcade.SpriteSolidColor(40, 20, color=arcade.color.GREEN)
-            platform.center_x = i*40
-            platform.center_y = 20
+            platform = arcade.Sprite(
+                ":resources:images/tiles/grassMid.png",
+                scale=0.5
+            )
+            platform.center_x = i * 64
+            platform.center_y = 32
             self.platform_list.append(platform)
 
-        #physics engine
         self.physics_engine = arcade.PhysicsEnginePlatformer(
-            player_sprite=self.player,
-            platforms=self.platform_list,
-            gravity_constant=GRAVITY
+            self.player,
+            gravity_constant=GRAVITY,
+            walls = self.platform_list
         )
+
+        print(f"Platform sayısı: {len(self.platform_list)}")
+        print(f"Player konum: {self.player.center_x}, {self.player.center_y}")
+        for p in self.platform_list:
+            print(f"Platform: {p.center_x}, {p.center_y}")
+
 
     def on_key_press(self, key, modifiers):
         if key == arcade.key.LEFT:
-            self.player.center_x = -PLAYER_MOVEMENT_SPEED
+            self.player.change_x = -PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.RIGHT:
-            self.player.center_x = PLAYER_MOVEMENT_SPEED
+            self.player.change_x = PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.UP or key == arcade.key.SPACE:
-            print(self.physics_engine.can_jump())
             if self.physics_engine.can_jump():
-                self.player.center_y = PLAYER_MOVEMENT_SPEED
+                self.player.change_y = PLAYER_JUMP_SPEED
 
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
@@ -50,4 +57,4 @@ class Game(arcade.Window):
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
-            print(self.player.center_y)
+            print(f"x:{self.player.center_x} y:{self.player.center_y} change_x:{self.player.change_x}")
