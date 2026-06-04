@@ -50,8 +50,6 @@ class Game(arcade.Window):
         with self.camera:
             self.platform_list.draw()
             arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
-        self.platform_list.draw()
-        arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
         #border
         if self.player.center_x < 20:
