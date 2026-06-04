@@ -9,6 +9,7 @@ class Game(arcade.Window):
         self.player = None
         self.platform_list = None
         self.physics_engine = None
+        self.camera = None
 
     def setup(self):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
