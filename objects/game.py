@@ -30,12 +30,6 @@ class Game(arcade.Window):
             walls = self.platform_list
         )
 
-        print(f"Platform sayısı: {len(self.platform_list)}")
-        print(f"Player konum: {self.player.center_x}, {self.player.center_y}")
-        for p in self.platform_list:
-            print(f"Platform: {p.center_x}, {p.center_y}")
-
-
     def on_key_press(self, key, modifiers):
         if key == arcade.key.LEFT:
             self.player.change_x = -PLAYER_MOVEMENT_SPEED
