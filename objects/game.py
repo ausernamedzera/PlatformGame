@@ -49,6 +49,7 @@ class Game(arcade.Window):
         self.clear()
         with self.camera:
             self.platform_list.draw()
+            arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
         self.platform_list.draw()
         arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
