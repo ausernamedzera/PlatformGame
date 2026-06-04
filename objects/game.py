@@ -55,8 +55,6 @@ class Game(arcade.Window):
         #border
         if self.player.center_x < 20:
             self.player.center_x = 20
-        if self.player.center_x > SCREEN_WIDTH - 20:
-            self.player.center_x = SCREEN_WIDTH - 20
 
     def on_update(self, delta_time):
         if self.physics_engine:
