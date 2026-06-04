@@ -48,6 +48,12 @@ class Game(arcade.Window):
         self.platform_list.draw()
         arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
+        #border
+        if self.player.center_x < 20:
+            self.player.center_x = 20
+        if self.player.center_x > SCREEN_WIDTH - 20:
+            self.player.center_x = SCREEN_WIDTH - 20
+
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
