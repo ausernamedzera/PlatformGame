@@ -67,4 +67,7 @@ class Game(arcade.Window):
                 ":resources:images/tiles/grassMid.png",
                 scale=0.5
             )
+            platform.center_x = self.last_platform_x
+            platform.center_y = 32
+            self.platform_list.append(platform)
         self.camera.position = (self.player.center_x, self.player.center_y)
