@@ -10,6 +10,8 @@ class Game(arcade.Window):
         self.platform_list = None
         self.physics_engine = None
         self.camera = None
+        self.coin_list = None
+        self.score = 0
         self.last_platform_x = 0
 
     def setup(self):
