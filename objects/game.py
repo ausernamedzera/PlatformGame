@@ -70,6 +70,13 @@ class Game(arcade.Window):
         if self.physics_engine:
             self.physics_engine.update()
 
+        #coin
+        if random.random() > 0.5:
+            coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
+            coin.center_x = self.last_platform_x
+            coin.center_y = 100
+            self.coin_list.append(coin)
+
         if self.player.center_x+400 > self.last_platform_x:
             self.last_platform_x += 64
             platform = arcade.Sprite(
@@ -84,8 +91,4 @@ class Game(arcade.Window):
             p.remove_from_sprite_lists()
         self.camera.position = (self.player.center_x, self.player.center_y)
 
-        if random.random() > 0.5:
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
-            coin.center_x = self.last_platform_x
-            coin.center_y = 100
-            self.coin_list.append(coin)
+
