@@ -61,4 +61,6 @@ class Game(arcade.Window):
         if self.physics_engine:
             self.physics_engine.update()
 
+        if self.player.center_x+400 < self.last_platform_x:
+            self.last_platform_x += 64
         self.camera.position = (self.player.center_x, self.player.center_y)
