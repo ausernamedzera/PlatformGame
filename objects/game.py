@@ -63,4 +63,8 @@ class Game(arcade.Window):
 
         if self.player.center_x+400 < self.last_platform_x:
             self.last_platform_x += 64
+            platform = arcade.Sprite(
+                ":resources:images/tiles/grassMid.png",
+                scale=0.5
+            )
         self.camera.position = (self.player.center_x, self.player.center_y)
