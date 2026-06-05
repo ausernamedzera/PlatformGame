@@ -70,7 +70,7 @@ class Game(arcade.Window):
             platform.center_x = self.last_platform_x
             platform.center_y = 32
             self.platform_list.append(platform)
-        to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 400]
+        to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 1400]
         for p in to_remove:
             p.remove_from_sprite_lists()
         self.camera.position = (self.player.center_x, self.player.center_y)
