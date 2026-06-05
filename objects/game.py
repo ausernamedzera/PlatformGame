@@ -81,7 +81,8 @@ class Game(arcade.Window):
             p.remove_from_sprite_lists()
         self.camera.position = (self.player.center_x, self.player.center_y)
 
-        coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
-        coin.center_x = self.last_platform_x
-        coin.center_y = random.randint(60,200)
-        self.coin_list.append(coin)
+        if random.random() > 0.5:
+            coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
+            coin.center_x = self.last_platform_x
+            coin.center_y = random.randint(60,200)
+            self.coin_list.append(coin)
