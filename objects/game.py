@@ -18,6 +18,7 @@ class Game(arcade.Window):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
         self.player = Player()
         self.camera = arcade.Camera2D()
+        self.coin_list = arcade.SpriteList()
 
         # platform
         for i in range(20):
