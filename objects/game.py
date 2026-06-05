@@ -74,7 +74,7 @@ class Game(arcade.Window):
         if random.random() > 0.5:
             coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
             coin.center_x = self.last_platform_x
-            coin.center_y = 100
+            coin.center_y = random.randint(100, 200)
             self.coin_list.append(coin)
 
         if self.player.center_x+400 > self.last_platform_x:
