@@ -54,8 +54,10 @@ class Game(arcade.Window):
             arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
 
         #border
-        if self.player.center_x < 20:
-            self.player.center_x = 20
+        if self.platform_list:
+            left_most = min(p.center_x for p in self.platform_list)
+            if self.player.center_x < left_most:
+                self.player.center_x = left_most
 
     def on_update(self, delta_time):
         if self.physics_engine:
