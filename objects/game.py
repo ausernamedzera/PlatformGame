@@ -58,6 +58,10 @@ class Game(arcade.Window):
             arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
             # coin
             self.coin_list.draw()
+            arcade.draw_text(f"Score: {self.score}",
+                             self.camera.position[0] - SCREEN_WIDTH/2 + 10,
+                            self.camera.position[1] + SCREEN_HEIGHT/2 - 30,
+                            arcade.color.BLACK_OLIVE, 16)
         #border
         if self.platform_list:
             left_most = min(p.center_x for p in self.platform_list)
