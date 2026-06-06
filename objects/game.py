@@ -69,13 +69,10 @@ class Game(arcade.Window):
     def on_update(self, delta_time):
         if self.physics_engine:
             self.physics_engine.update()
-
-        #coin
-        if random.random() > 0.5:
-            coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
-            coin.center_x = self.last_platform_x
-            coin.center_y = random.randint(100, 200)
-            self.coin_list.append(coin)
+        coins_hit = arcade.check_for_collision_with_list(self.player, self.coin_list)
+        for coin in coins_hit:
+            coin.remove_from_sprite_lists()
+            self.score += 1
 
         if self.player.center_x+400 > self.last_platform_x:
             self.last_platform_x += 64
@@ -86,6 +83,12 @@ class Game(arcade.Window):
             platform.center_x = self.last_platform_x
             platform.center_y = 32
             self.platform_list.append(platform)
+            # coin
+            if random.random() < 0.5:
+                coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
+                coin.center_x = self.last_platform_x
+                coin.center_y = random.randint(200, 500)
+                self.coin_list.append(coin)
         to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 1400]
         for p in to_remove:
             p.remove_from_sprite_lists()
