@@ -56,15 +56,14 @@ class Game(arcade.Window):
         with self.camera.activate():
             self.platform_list.draw()
             arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
-
+            # coin
+            self.coin_list.draw()
         #border
         if self.platform_list:
             left_most = min(p.center_x for p in self.platform_list)
             if self.player.center_x < left_most:
                 self.player.center_x = left_most
 
-        #coin
-        self.coin_list.draw()
 
     def on_update(self, delta_time):
         if self.physics_engine:
@@ -87,7 +86,7 @@ class Game(arcade.Window):
             if random.random() < 0.5:
                 coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
                 coin.center_x = self.last_platform_x
-                coin.center_y = random.randint(200, 500)
+                coin.center_y = random.randint(90, 200)
                 self.coin_list.append(coin)
         to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 1400]
         for p in to_remove:
