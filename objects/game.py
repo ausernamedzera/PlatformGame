@@ -77,6 +77,12 @@ class Game(arcade.Window):
             coin.remove_from_sprite_lists()
             self.score += 1
 
+        if self.player.center_y < -100:
+            self.player.center_y = 200
+            self.player.center_x = 100
+            self.player.change_x = 0
+            self.player.change_y = 0
+
         if self.player.center_x+400 > self.last_platform_x:
             self.last_platform_x += 64
             platform = arcade.Sprite(
