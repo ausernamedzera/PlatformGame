@@ -89,7 +89,7 @@ class Game(arcade.Window):
                 ":resources:images/tiles/grassMid.png",
                 scale=0.5
             )
-            platform.center_x += random.randint(10, 160)
+            platform.center_x += random.randint(80, 160)
             platform.center_y = 32
             self.platform_list.append(platform)
             # coin
