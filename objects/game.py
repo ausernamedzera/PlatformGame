@@ -80,6 +80,8 @@ class Game(arcade.Window):
             self.score += 1
 
         if self.player.center_y < -100:
+            self.lives -= 1
+
             self.player.center_y = 200
             self.player.center_x = 100
             self.player.change_x = 0
