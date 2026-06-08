@@ -54,6 +54,7 @@ class Game(arcade.Window):
 
     def on_draw(self):
         self.clear()
+        arcade.draw_text(f"Health: {self.lives}", 10, SCREEN_HEIGHT - 50, arcade.color.BLACK_OLIVE, 16)
         #camera
         with self.camera.activate():
             self.platform_list.draw()
@@ -69,7 +70,6 @@ class Game(arcade.Window):
             left_most = min(p.center_x for p in self.platform_list)
             if self.player.center_x < left_most:
                 self.player.center_x = left_most
-
 
     def on_update(self, delta_time):
         if self.game_over:
