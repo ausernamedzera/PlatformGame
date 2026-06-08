@@ -54,7 +54,7 @@ class Game(arcade.Window):
 
     def on_draw(self):
         self.clear()
-        arcade.draw_text(f"Health: {self.lives}", 10, SCREEN_HEIGHT - 50, arcade.color.BLACK_OLIVE, 16)
+
         #camera
         with self.camera.activate():
             self.platform_list.draw()
@@ -65,6 +65,11 @@ class Game(arcade.Window):
                              self.camera.position[0] - SCREEN_WIDTH/2 + 10,
                             self.camera.position[1] + SCREEN_HEIGHT/2 - 30,
                             arcade.color.BLACK_OLIVE, 16)
+        arcade.draw_text(f"Health: {self.lives}", 10, SCREEN_HEIGHT - 50, arcade.color.BLACK_OLIVE, 16)
+
+        #check the old code later
+        if self.game_over:
+            arcade.draw_text("GAME OVER",SCREEN_WIDTH/2 - 100, SCREEN_HEIGHT/2, arcade.color.RED, 50)
         #border
         if self.platform_list:
             left_most = min(p.center_x for p in self.platform_list)
