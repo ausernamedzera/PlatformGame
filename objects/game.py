@@ -72,6 +72,8 @@ class Game(arcade.Window):
 
 
     def on_update(self, delta_time):
+        if self.game_over:
+            return
         if self.physics_engine:
             self.physics_engine.update()
         coins_hit = arcade.check_for_collision_with_list(self.player, self.coin_list)
