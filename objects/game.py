@@ -89,9 +89,16 @@ class Game(arcade.Window):
                 ":resources:images/tiles/grassMid.png",
                 scale=0.5
             )
-            platform.center_x += random.randint(80, 160)
-            platform.center_y = 32
-            self.platform_list.append(platform)
+            platform_width = random.randint(3, 6)
+            for j in range(platform_width):
+                platform = arcade.Sprite(
+                    ":resources:images/tiles/grassMid.png",
+                    scale=0.5
+                )
+                platform.center_x = self.last_platform_x + j * 64
+                platform.center_y = 32
+                self.platform_list.append(platform)
+            self.last_platform_x += platform_width * 64 + random.randint(80, 160)
             # coin
             if random.random() < 0.5:
                 coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
