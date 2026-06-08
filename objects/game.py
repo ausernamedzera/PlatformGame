@@ -14,6 +14,7 @@ class Game(arcade.Window):
         self.coin_list = None
         self.score = 0
         self.last_platform_x = 0
+        self.lives = 3
 
     def setup(self):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
