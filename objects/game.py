@@ -86,7 +86,11 @@ class Game(arcade.Window):
         for coin in coins_hit:
             coin.remove_from_sprite_lists()
             self.score += 1
+            if self.score >= 10 and self.stage == 1:
+                self.stage = 2
+                print("stage2")
 
+        #respawn
         if self.player.center_y < -100:
             self.lives -= 1
             if self.lives <= 0:
@@ -113,9 +117,9 @@ class Game(arcade.Window):
                 self.platform_list.append(platform)
             self.last_platform_x += platform_width * 64 + random.randint(80, 160)
             # coin
-            if random.random() < 0.5:
+            if random.random() < 0.8:
                 coin = arcade.Sprite(":resources:images/items/coinGold.png", scale=0.5)
-                coin.center_x = self.last_platform_x
+                coin.center_x = random.randint(self.last_platform_x+100, self.last_platform_x + 400)
                 coin.center_y = random.randint(90, 200)
                 self.coin_list.append(coin)
         to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 1400]
