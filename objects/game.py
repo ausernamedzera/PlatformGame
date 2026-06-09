@@ -67,7 +67,7 @@ class Game(arcade.Window):
                             self.camera.position[1] + SCREEN_HEIGHT/2 - 30,
                             arcade.color.BLACK_OLIVE, 16)
         arcade.draw_text(f"Health: {self.lives}", 10, SCREEN_HEIGHT - 50, arcade.color.BLACK_OLIVE, 16)
-
+        arcade.draw_text(f"Stage: {self.stage}", 10, SCREEN_HEIGHT - 70, arcade.color.BLACK_OLIVE, 16)
         #check the old code later
         if self.game_over:
             arcade.draw_text("GAME OVER",SCREEN_WIDTH/2 - 100, SCREEN_HEIGHT/2, arcade.color.RED, 50)
