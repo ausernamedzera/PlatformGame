@@ -6,3 +6,4 @@ class Enemy:
         super().__init__(":resources:images/enemies/wormGreen.png", scale = 0.5)
         self.center_x = x
         self.center_y = y
+        self.change_x = random.choice([-2, 2])
