@@ -7,3 +7,6 @@ class Enemy:
         self.center_x = x
         self.center_y = y
         self.change_x = random.choice([-2, 2])
+
+    def update(self):
+        self.center_x += self.change_x
