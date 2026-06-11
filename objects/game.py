@@ -2,6 +2,7 @@ import arcade
 from objects.player import Player
 from constants import *
 import random
+from objects.enemy import Enemy
 
 class Game(arcade.Window):
     def __init__(self):
