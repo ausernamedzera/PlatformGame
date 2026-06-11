@@ -14,6 +14,7 @@ class Game(arcade.Window):
         self.camera = None
         self.coin_list = None
         self.enemy_list = None
+        self.enemies_killed = 0
         self.score = 0
         self.last_platform_x = 0
         self.lives = 3
