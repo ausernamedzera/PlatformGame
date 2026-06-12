@@ -62,6 +62,7 @@ class Game(arcade.Window):
 
         #camera
         with self.camera.activate():
+            self.enemy_list.draw()
             self.platform_list.draw()
             arcade.draw_circle_filled(self.player.center_x, self.player.center_y, 20, arcade.color.BLUE)
             # coin
