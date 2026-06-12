@@ -138,5 +138,8 @@ class Game(arcade.Window):
                 enemy = Enemy(self.player.center_x + 400, 80)
                 self.enemy_list.append(enemy)
 
+            for enemy in self.enemy_list():
+                enemy.update()
+
 
 
