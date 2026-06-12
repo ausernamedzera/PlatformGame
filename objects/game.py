@@ -136,7 +136,7 @@ class Game(arcade.Window):
         if self.stage == 2:
             if random.random() < 0.6:
                 enemy = Enemy(self.player.center_x + 400, 80)
-
+                self.enemy_list.append(enemy)
 
 
 
