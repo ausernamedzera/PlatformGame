@@ -104,6 +104,7 @@ class Game(arcade.Window):
             self.player.change_x = 0
             self.player.change_y = 0
 
+        #platform
         if self.player.center_x+400 > self.last_platform_x:
             self.last_platform_x += 64
             platform = arcade.Sprite(
@@ -130,5 +131,12 @@ class Game(arcade.Window):
         for p in to_remove:
             p.remove_from_sprite_lists()
         self.camera.position = (self.player.center_x, self.player.center_y)
+
+        #enemy
+        if self.stage == 2:
+            if random.random() < 0.6:
+                enemy = Enemy(self.player.center_x + 400, 80)
+
+
 
 
