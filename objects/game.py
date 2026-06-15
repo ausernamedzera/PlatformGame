@@ -146,5 +146,7 @@ class Game(arcade.Window):
             enemies_hit =  arcade.check_for_collision_with_list(self.player, self.enemy_list)
             for enemy in enemies_hit:
                 self.lives -= 1
+                enemy.remove_from_sprite_lists()
+                self.enemies_killed += 1
 
 
