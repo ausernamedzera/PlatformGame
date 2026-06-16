@@ -145,6 +145,11 @@ class Game(arcade.Window):
         if self.stage == 2:
             enemies_hit =  arcade.check_for_collision_with_list(self.player, self.enemy_list)
             for enemy in enemies_hit:
+                if self.player.center_y > enemy.center_y+20:
+                    enemy.remove_from_sprite_lists()
+                    self.enemies_killed += 1
+                    self.score += 2
+                    self.player.change_y= PLAYER_JUMP_SPEED
                 self.lives -= 1
                 enemy.remove_from_sprite_lists()
                 self.enemies_killed += 1
