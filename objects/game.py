@@ -150,6 +150,9 @@ class Game(arcade.Window):
                     self.enemies_killed += 1
                     self.score += 2
                     self.player.change_y= PLAYER_JUMP_SPEED
+                    if self.enemies_killed >= 20:
+                        self.stage = 3
+                        print("STAGE 3!")
                 self.lives -= 1
                 enemy.remove_from_sprite_lists()
                 self.enemies_killed += 1
