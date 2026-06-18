@@ -135,7 +135,7 @@ class Game(arcade.Window):
 
         #enemy
         if self.stage == 2:
-            if random.random() < 0.0005:
+            if random.random() < 0.006:
                 enemy = Enemy(self.player.center_x + 400, 130)
                 self.enemy_list.append(enemy)
 
@@ -145,6 +145,9 @@ class Game(arcade.Window):
         if self.stage == 2:
             enemies_hit =  arcade.check_for_collision_with_list(self.player, self.enemy_list)
             for enemy in enemies_hit:
+                for enemy in enemies_hit:
+                    print(
+                        f"player y: {self.player.center_y}, enemy y: {enemy.center_y}, fark: {self.player.center_y - enemy.center_y}")
                 if self.player.center_y > enemy.center_y+20:
                     enemy.remove_from_sprite_lists()
                     self.enemies_killed += 1
