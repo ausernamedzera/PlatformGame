@@ -50,9 +50,8 @@ class Game(arcade.Window):
         elif key == arcade.key.RIGHT:
             self.player.change_x = PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.UP or key == arcade.key.SPACE:
-            print(f"JUMPplayer y: {self.player.center_y}")
             if self.physics_engine.can_jump():
-                self.player.change_y = PLAYER_JUMP_SPEED
+                self.physics_engine.can_jump(PLAYER_JUMP_SPEED)
 
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
@@ -137,7 +136,7 @@ class Game(arcade.Window):
         #enemy
         if self.stage == 2:
             if random.random() < 0.006:
-                enemy = Enemy(self.player.center_x + 400, 80)
+                enemy = Enemy(self.player.center_x + 400, 84)
                 self.enemy_list.append(enemy)
 
             for enemy in self.enemy_list:
@@ -148,13 +147,13 @@ class Game(arcade.Window):
             for enemy in enemies_hit:
                 print(
                     f"player y: {self.player.center_y}, enemy y: {enemy.center_y}, fark: {self.player.center_y - enemy.center_y}")
-            if self.player.center_y < enemy.center_y-10:
-                self.lives -= 1
-                enemy.remove_from_sprite_lists()
-            else:
-                self.enemies_killed += 1
-                self.score += 2
-                self.player.change_y= PLAYER_JUMP_SPEED
+                if self.player.center_y < enemy.center_y-10:
+                    self.lives -= 1
+                    enemy.remove_from_sprite_lists()
+                else:
+                    self.enemies_killed += 1
+                    self.score += 2
+                    self.player.change_y= PLAYER_JUMP_SPEED
                 if self.enemies_killed >= 20:
                     self.stage = 3
                     print("STAGE 3!")
