@@ -158,7 +158,4 @@ class Game(arcade.Window):
                 if self.enemies_killed >= 20:
                     self.stage = 3
                     print("STAGE 3!")
-            enemy.remove_from_sprite_lists()
-            self.enemies_killed += 1
-
 
