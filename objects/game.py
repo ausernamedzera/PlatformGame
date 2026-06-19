@@ -50,6 +50,7 @@ class Game(arcade.Window):
         elif key == arcade.key.RIGHT:
             self.player.change_x = PLAYER_MOVEMENT_SPEED
         elif key == arcade.key.UP or key == arcade.key.SPACE:
+            print(f"JUMPplayer y: {self.player.center_y}")
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
 
@@ -136,7 +137,7 @@ class Game(arcade.Window):
         #enemy
         if self.stage == 2:
             if random.random() < 0.006:
-                enemy = Enemy(self.player.center_x + 400, 130)
+                enemy = Enemy(self.player.center_x + 400, 80)
                 self.enemy_list.append(enemy)
 
             for enemy in self.enemy_list:
@@ -145,19 +146,19 @@ class Game(arcade.Window):
         if self.stage == 2:
             enemies_hit =  arcade.check_for_collision_with_list(self.player, self.enemy_list)
             for enemy in enemies_hit:
-                for enemy in enemies_hit:
-                    print(
-                        f"player y: {self.player.center_y}, enemy y: {enemy.center_y}, fark: {self.player.center_y - enemy.center_y}")
-                if self.player.center_y > enemy.center_y+20:
-                    enemy.remove_from_sprite_lists()
-                    self.enemies_killed += 1
-                    self.score += 2
-                    self.player.change_y= PLAYER_JUMP_SPEED
-                    if self.enemies_killed >= 20:
-                        self.stage = 3
-                        print("STAGE 3!")
+                print(
+                    f"player y: {self.player.center_y}, enemy y: {enemy.center_y}, fark: {self.player.center_y - enemy.center_y}")
+            if self.player.center_y < enemy.center_y-10:
                 self.lives -= 1
                 enemy.remove_from_sprite_lists()
+            else:
                 self.enemies_killed += 1
+                self.score += 2
+                self.player.change_y= PLAYER_JUMP_SPEED
+                if self.enemies_killed >= 20:
+                    self.stage = 3
+                    print("STAGE 3!")
+            enemy.remove_from_sprite_lists()
+            self.enemies_killed += 1
 
 
