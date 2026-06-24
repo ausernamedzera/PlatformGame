@@ -15,7 +15,7 @@ class Enemy(arcade.Sprite):
             walls = platform_list
         )
 
-    def update(self):
+    def move(self):
         self.physics_engine.update()
         self.center_x += self.change_x
         if abs(self.center_x - self.start_x) > 100:
