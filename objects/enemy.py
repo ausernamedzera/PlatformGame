@@ -16,6 +16,7 @@ class Enemy(arcade.Sprite):
         )
 
     def update(self):
+        self.physics_engine.update()
         self.center_x += self.change_x
         if abs(self.center_x - self.start_x) > 100:
             self.change_x *= -1
