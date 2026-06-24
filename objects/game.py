@@ -140,7 +140,7 @@ class Game(arcade.Window):
                 self.enemy_list.append(enemy)
 
             for enemy in self.enemy_list:
-                enemy.update()
+                enemy.move()
 
         if self.stage == 2:
             enemies_hit =  arcade.check_for_collision_with_list(self.player, self.enemy_list)
