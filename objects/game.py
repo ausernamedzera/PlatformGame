@@ -135,8 +135,8 @@ class Game(arcade.Window):
 
         #enemy
         if self.stage == 2:
-            if random.random() < 0.006:
-                enemy = Enemy(self.player.center_x + 400, 80, self.platform_list)
+            if random.random() < 0.004:
+                enemy = Enemy(self.player.center_x + 200, 80, self.platform_list)
                 self.enemy_list.append(enemy)
 
             for enemy in self.enemy_list:
@@ -154,7 +154,9 @@ class Game(arcade.Window):
                     self.enemies_killed += 1
                     self.score += 2
                     self.player.change_y= PLAYER_JUMP_SPEED
-                if self.enemies_killed >= 20:
+                    enemy.remove_from_sprite_lists()
+
+                if self.enemies_killed >= 10:
                     self.stage = 3
 
         if self.stage == 3:
