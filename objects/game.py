@@ -94,7 +94,6 @@ class Game(arcade.Window):
             self.score += 1
             if self.score >= 10 and self.stage == 1:
                 self.stage = 2
-                print("stage2")
 
         #respawn
         if self.player.center_y < -100:
@@ -157,5 +156,11 @@ class Game(arcade.Window):
                     self.player.change_y= PLAYER_JUMP_SPEED
                 if self.enemies_killed >= 20:
                     self.stage = 3
-                    print("STAGE 3!")
 
+        if self.stage == 3:
+            if self.player.center_y + 300 > self.last_tower_y:
+                self.last_tower_y += random.randint(100,150)
+                platform = arcade.Sprite(":resources:images/tiles/grassMid.png", scale=0.5)
+                platform.center_x = random.randint(100, 700)
+                platform.center_y = self.last_tower_y
+                self.platform_list.append(platform)
