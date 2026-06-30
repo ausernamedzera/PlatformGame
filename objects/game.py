@@ -137,7 +137,7 @@ class Game(arcade.Window):
         if self.stage == 2:
             if random.random() < 0.006:
                 if self.platform_list:
-                    random_platform = random.choice(self.platform_list.sprite.list)
+                    random_platform = random.choice(self.platform_list.sprite_list)
                     enemy = Enemy(random_platform.center_x, random_platform.center_y +50, self.platform_list)
                     self.enemy_list.append(enemy)
 
