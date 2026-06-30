@@ -170,3 +170,7 @@ class Game(arcade.Window):
                 platform.center_x = random.randint(100, 700)
                 platform.center_y = self.last_tower_y
                 self.platform_list.append(platform)
+
+        to_remove_enemies = [e for e in self.enemy_list if e.center_y < -200]
+        for e in to_remove_enemies:
+            e.remove_from_sprite_lists()
