@@ -128,7 +128,7 @@ class Game(arcade.Window):
                 coin.center_x = random.randint(self.last_platform_x+100, self.last_platform_x + 400)
                 coin.center_y = random.randint(90, 200)
                 self.coin_list.append(coin)
-        to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 1400]
+        to_remove = [p for p in self.platform_list if p.center_x < self.player.center_x - 3000]
         for p in to_remove:
             p.remove_from_sprite_lists()
         self.camera.position = (self.player.center_x, self.player.center_y)
@@ -136,9 +136,10 @@ class Game(arcade.Window):
         #enemy
         if self.stage == 2:
             if random.random() < 0.006:
-                spawn_x = self.player.center_x + random.randint(300, 500)
-                enemy = Enemy(spawn_x, 200, self.platform_list)
-                self.enemy_list.append(enemy)
+                if self.platform_list:
+                    random_platform = random.choice(self.platform_list.sprite.list)
+                    enemy = Enemy(random_platform.center_x, random_platform.center_y +50, self.platform_list)
+                    self.enemy_list.append(enemy)
 
             for enemy in self.enemy_list:
                 enemy.move()
