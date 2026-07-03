@@ -137,10 +137,11 @@ class Game(arcade.Window):
         if self.stage == 2:
             if random.random() < 0.006:
                 if self.platform_list:
-                    random_platform = random.choice(self.platform_list.sprite_list)
-                    enemy = Enemy(random_platform.center_x, random_platform.center_y +50, self.platform_list)
-                    self.enemy_list.append(enemy)
-
+                    ahead_platforms = [p for p in self.platform_list if p.center_x > self.player.center_x]
+                    if ahead_platforms:
+                        random_platform = random.choice(ahead_platforms)
+                        enemy = Enemy(random_platform.center_x, random_platform.center_y + 50, self.platform_list)
+                        self.enemy_list.append(enemy)
             for enemy in self.enemy_list:
                 enemy.move()
                 print(f"enemy y: {enemy.center_y} and enemy x: {enemy.center_x}")
@@ -170,13 +171,6 @@ class Game(arcade.Window):
                 platform.center_x = random.randint(100, 700)
                 platform.center_y = self.last_tower_y
                 self.platform_list.append(platform)
-
-        if self.platform_list:
-            ahead_platforms = [p for p in self.platform_list if p.center_x > self.player.center_x]
-            if ahead_platforms:
-                random_platform = random.choice(ahead_platforms)
-                enemy = Enemy(random_platform.center_x, random_platform.center_y + 50, self.platform_list)
-                self.enemy_list.append(enemy)
 
         to_remove_enemies = [e for e in self.enemy_list if e.center_y < -200]
         for e in to_remove_enemies:
