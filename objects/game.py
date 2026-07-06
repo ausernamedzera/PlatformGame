@@ -20,7 +20,7 @@ class Game(arcade.Window):
         self.lives = 3
         self.game_over = False
         self.stage = 1
-        self.last_tower_y = 100
+        self.last_tower_y = 32
 
     def setup(self):
         self.platform_list = arcade.SpriteList() #Belongs to arcade, hold objects
