@@ -53,6 +53,9 @@ class Game(arcade.Window):
         elif key == arcade.key.UP or key == arcade.key.SPACE:
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
+        if self.game_over:
+            if key == arcade.key.ESCAPE:
+                arcade.exit()
 
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
