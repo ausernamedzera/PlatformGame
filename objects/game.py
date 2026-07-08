@@ -56,6 +56,7 @@ class Game(arcade.Window):
         if self.game_over:
             if key == arcade.key.ESCAPE:
                 arcade.exit()
+            elif key == arcade.key.R:
 
     def on_key_release(self, key, modifiers):
         if key == arcade.key.LEFT or key == arcade.key.RIGHT:
