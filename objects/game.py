@@ -164,6 +164,7 @@ class Game(arcade.Window):
 
                 if self.enemies_killed >= 10:
                     self.stage = 3
+                    self.last_tower_y = self.player.center_y
 
         if self.stage == 3:
             print(f"last_tower_y: {self.last_tower_y}, player_y: {self.player.center_y}")
