@@ -169,9 +169,9 @@ class Game(arcade.Window):
         if self.stage == 3:
             print(f"last_tower_y: {self.last_tower_y}, player_y: {self.player.center_y}")
             if self.player.center_y + 300 > self.last_tower_y:
-                self.last_tower_y += random.randint(100,150)
+                self.last_tower_y += random.randint(100, 150)
                 platform = arcade.Sprite(":resources:images/tiles/grassMid.png", scale=0.5)
-                platform.center_x = random.randint(100, 700)
+                platform.center_x = self.player.center_x + random.randint(-200, 200)  # oyuncuya yakın
                 platform.center_y = self.last_tower_y
                 self.platform_list.append(platform)
 
