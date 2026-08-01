@@ -171,7 +171,8 @@ class Game(arcade.Window):
             if self.player.center_y + 300 > self.last_tower_y:
                 self.last_tower_y += random.randint(100, 150)
                 platform = arcade.Sprite(":resources:images/tiles/grassMid.png", scale=0.5)
-                platform.center_x = self.player.center_x + random.randint(-200, 200)  # oyuncuya yakın
+                offset = random.choice([-1, 1]) * random.randint(100, 250)
+                platform.center_x = self.player.center_x + offset
                 platform.center_y = self.last_tower_y
                 self.platform_list.append(platform)
 
