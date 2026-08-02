@@ -53,6 +53,8 @@ class Game(arcade.Window):
         elif key == arcade.key.UP or key == arcade.key.SPACE:
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
+                if self.stage == 3:
+                    self.player.change_y = 30
         if self.game_over:
             if key == arcade.key.ESCAPE:
                 arcade.exit()
@@ -169,9 +171,9 @@ class Game(arcade.Window):
         if self.stage == 3:
             print(f"last_tower_y: {self.last_tower_y}, player_y: {self.player.center_y}")
             if self.player.center_y + 300 > self.last_tower_y:
-                self.last_tower_y += random.randint(60, 100)
+                self.last_tower_y += random.randint(100, 150)
                 platform = arcade.Sprite(":resources:images/tiles/grassMid.png", scale=0.5)
-                offset = random.choice([-1, 1]) * random.randint(100, 250)
+                offset = random.choice([-1, 1]) * random.randint(60, 100)
                 platform.center_x = self.player.center_x + offset
                 platform.center_y = self.last_tower_y
                 self.platform_list.append(platform)
