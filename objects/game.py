@@ -19,7 +19,7 @@ class Game(arcade.Window):
         self.last_platform_x = 0
         self.lives = 3
         self.game_over = False
-        self.stage = 1
+        self.stage = 3
         self.last_tower_y = 32
 
     def setup(self):
@@ -169,7 +169,7 @@ class Game(arcade.Window):
         if self.stage == 3:
             print(f"last_tower_y: {self.last_tower_y}, player_y: {self.player.center_y}")
             if self.player.center_y + 300 > self.last_tower_y:
-                self.last_tower_y += random.randint(100, 150)
+                self.last_tower_y += random.randint(60, 100)
                 platform = arcade.Sprite(":resources:images/tiles/grassMid.png", scale=0.5)
                 offset = random.choice([-1, 1]) * random.randint(100, 250)
                 platform.center_x = self.player.center_x + offset
