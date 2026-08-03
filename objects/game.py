@@ -54,7 +54,7 @@ class Game(arcade.Window):
             if self.physics_engine.can_jump():
                 self.player.change_y = PLAYER_JUMP_SPEED
                 if self.stage == 3:
-                    self.player.change_y = 30
+                    self.player.change_y = 25
         if self.game_over:
             if key == arcade.key.ESCAPE:
                 arcade.exit()
